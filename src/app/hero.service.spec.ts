@@ -34,6 +34,19 @@ describe('HeroService', () => {
       req.flush(expectedHero);
     });
 
+    //write test case for addHero method when there is an error
+  it('should return error when there is an error', () => {
+    const expectedHero = { id: 1, name: 'A' };
+    service.addHero(expectedHero).subscribe(hero => {
+      expect(hero).toBeUndefined();
+    });
+
+    const req = httpTestingController.expectOne('api/heroes');
+    expect(req.request.method).toEqual('POST');
+
+    req.flush('error', { status: 400, statusText: 'Bad Request' });
+  });
+
   });
 
   afterEach(() => {
