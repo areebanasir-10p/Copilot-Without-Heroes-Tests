@@ -19,7 +19,7 @@ let heroes = [
 ];
 
 // add a describe block for the in-memory-data service
-fdescribe('InMemoryDataService', () => {
+describe('InMemoryDataService', () => {
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
   let service: InMemoryDataService;
