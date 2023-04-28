@@ -1,10 +1,9 @@
 // add necessary imports for the test suite
 import { InMemoryDataService } from './in-memory-data.service';
-import { Hero } from './hero';
 // add imports for the testing environment
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 let heroes = [
   { id: 12, name: 'Dr. Nice' },
@@ -29,8 +28,8 @@ describe('InMemoryDataService', () => {
       imports: [HttpClientTestingModule],
       providers: [InMemoryDataService]
     });
-    httpClient = TestBed.inject(HttpClient);
-    httpTestingController = TestBed.inject(HttpTestingController);
+    TestBed.inject(HttpClient);
+    TestBed.inject(HttpTestingController);
     service = TestBed.inject(InMemoryDataService);
   });
 

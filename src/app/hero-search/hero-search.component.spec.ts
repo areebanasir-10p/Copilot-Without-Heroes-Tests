@@ -2,7 +2,7 @@
 import { ComponentFixture, TestBed, fakeAsync, tick, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Subject, of } from 'rxjs';
+import { of } from 'rxjs';
 import { HeroService } from '../hero.service';
 import { HEROES } from '../mock-heroes';
 import { HeroSearchComponent } from './hero-search.component';
@@ -17,12 +17,12 @@ describe('HeroSearchComponent', () => {
     searchHeroesSpy = heroService.searchHeroes.and.returnValue(of(HEROES));
 
     TestBed
-        .configureTestingModule({
-          declarations: [HeroSearchComponent],
-          imports: [FormsModule, RouterTestingModule.withRoutes([])],
-          providers: [{provide: HeroService, useValue: heroService}]
-        })
-        .compileComponents();
+      .configureTestingModule({
+        declarations: [HeroSearchComponent],
+        imports: [FormsModule, RouterTestingModule.withRoutes([])],
+        providers: [{ provide: HeroService, useValue: heroService }]
+      })
+      .compileComponents();
     fixture = TestBed.createComponent(HeroSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -33,10 +33,10 @@ describe('HeroSearchComponent', () => {
 
   //write test case for ngOnInit method of hero search component
   it('should call heroService', fakeAsync(() => {
-        component['searchTerms'].next('A');
-        tick(300);
-        expect(searchHeroesSpy.calls.any()).toBe(true);
-      }
+    component['searchTerms'].next('A');
+    tick(300);
+    expect(searchHeroesSpy.calls.any()).toBe(true);
+  }
   ));
 
   //write test case for search method of hero search component
