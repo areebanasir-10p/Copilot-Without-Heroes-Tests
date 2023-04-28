@@ -14,7 +14,6 @@ const mockHeroes: Hero[] = [
   { id: 1, name: 'SuperDude' },
 ];
 
-
 // add a describe block for the dashboard component and mock the hero service
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
