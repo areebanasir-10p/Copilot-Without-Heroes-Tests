@@ -98,9 +98,3 @@ describe('HeroesComponent', () => {
     expect(heroService.deleteHero).toHaveBeenCalledWith(HEROES[0].id);
   });
 });
-
-
-
-
-
-
