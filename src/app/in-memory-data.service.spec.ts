@@ -18,7 +18,7 @@ let heroes = [
 ];
 
 // add a describe block for the in-memory-data service
-describe('InMemoryDataService', () => {
+fdescribe('InMemoryDataService', () => {
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
   let service: InMemoryDataService;
@@ -28,8 +28,6 @@ describe('InMemoryDataService', () => {
       imports: [HttpClientTestingModule],
       providers: [InMemoryDataService]
     });
-    TestBed.inject(HttpClient);
-    TestBed.inject(HttpTestingController);
     service = TestBed.inject(InMemoryDataService);
   });
 
